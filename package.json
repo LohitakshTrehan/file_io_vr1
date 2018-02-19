@@ -1,0 +1,19 @@
+{
+  "name": "file_io_vr1",
+  "version": "1.0.0",
+  "description": "It will be version 1, with simple download and upload of files, with a progress bar and with no accounts of a user or any other functionality. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LohitakshTrehan/file_io_vr1.git"
+  },
+  "author": "Lohitaksh Trehan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LohitakshTrehan/file_io_vr1/issues"
+  },
+  "homepage": "https://github.com/LohitakshTrehan/file_io_vr1#readme"
+}
