@@ -7,4 +7,6 @@ app.set('view engine', 'ejs')
 app.get('/',function(req,res) {
   res.render('index');
 })
+
+app.use('/', express.static(path.join(__dirname, 'client')))
 app.listen(3000, () => console.log('Magic happens at 3000!'))
