@@ -4,8 +4,8 @@ const app = express()
 var formidable = require('formidable')
 var fs = require('fs')
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
+var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 
 app.set('views', path.join(__dirname, 'client'))
 app.set('view engine', 'ejs')
@@ -43,4 +43,5 @@ app.post('/upload', function(req, res){
 });
 
 app.use('/', express.static(path.join(__dirname, 'client')))
-app.listen(server_port, server_ip_address, () => console.log('Magic happens at 3000!'))
+app.listen(port,ip, () => console.log('Magic happens at 8080!'))
+module.exports = app ;
