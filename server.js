@@ -40,4 +40,4 @@ app.post('/upload', function(req, res){
 });
 
 app.use('/', express.static(path.join(__dirname, 'client')))
-app.listen(3000, () => console.log('Magic happens at 3000!'))
+app.listen(process.env.PORT || 3000, () => console.log('Magic happens at 3000!'))
