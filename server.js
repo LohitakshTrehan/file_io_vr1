@@ -6,12 +6,25 @@ var fs = require('fs')
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
+var upDIR = path.join(__dirname, '/uploads');
+var list = []
 
 app.set('views', path.join(__dirname, 'client'))
 app.set('view engine', 'ejs')
 
 app.get('/',function(req,res) {
-  res.render('index');
+  var arr = []
+  var i =0
+  fs.readdir(upDIR, (err, files) => {
+    files.forEach(file => {
+      console.log(file);
+      arr[i++] = file;
+    });
+    list = arr
+    console.log(arr);
+    console.log(list);
+    res.render('index',{list:list});
+  })
 })
 
 app.post('/upload', function(req, res){
@@ -21,7 +34,7 @@ app.post('/upload', function(req, res){
   // specify that we want to allow the user to upload multiple files in a single request
   form.multiples = true;
   // store all uploads in the /uploads directory
-  form.uploadDir = path.join(__dirname, '/uploads');
+  form.uploadDir = upDIR;
   // every time a file has been uploaded successfully,
   // rename it to it's orignal name
   form.on('file', function(field, file) {

@@ -41,6 +41,10 @@ window.onload = function() {
               // once the upload reaches 100%, set the progress bar text to done
               if (percentComplete === 100) {
                 $('.progress-bar').html('Done');
+                $.get("/", function(){
+                  console.log("done it");
+                  window.location.reload(false);
+                });
               }
 
             }

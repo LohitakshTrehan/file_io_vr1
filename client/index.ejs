@@ -33,6 +33,13 @@
         </div>
       </div>
     </div>
+    <br>
+    <br>
+    <ul class="list-group">
+      <% for (var i = 0; i < list.length; i++) { %>
+        <li class="list-group-item"><%= list[i] %></li>
+      <% } %>
+    </ul>
     <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
 
     <script src="./JS/jquery.js"></script>
