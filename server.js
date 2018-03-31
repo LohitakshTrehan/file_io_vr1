@@ -6,7 +6,11 @@ var fs = require('fs')
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
-var upDIR = path.join(__dirname, '/uploads');
+if(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || process.env.IP || process.env.OPENSHIFT_NODEJS_IP )
+  var upDIR = path.join(__dirname, '../../../uploads');
+else {
+  var upDIR = path.join(__dirname, 'uploads');
+}
 var list = []
 
 app.set('views', path.join(__dirname, 'client'))
