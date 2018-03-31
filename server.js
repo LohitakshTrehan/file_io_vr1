@@ -17,14 +17,18 @@ app.get('/',function(req,res) {
   var i =0
   fs.readdir(upDIR, (err, files) => {
     files.forEach(file => {
-      console.log(file);
+    //  console.log(file);
       arr[i++] = file;
     });
     list = arr
     console.log(arr);
-    console.log(list);
     res.render('index',{list:list});
   })
+})
+
+app.get('/d/:nam',function (req,res) {
+  console.log(upDIR+'/'+req.params.nam);
+  res.download(upDIR+'/'+req.params.nam)
 })
 
 app.post('/upload', function(req, res){

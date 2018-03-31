@@ -35,9 +35,9 @@
     </div>
     <br>
     <br>
-    <ul class="list-group">
-      <% for (var i = 0; i < list.length; i++) { %>
-        <li class="list-group-item"><%= list[i] %></li>
+    <ul id="listgp" class="list-group">
+      <% for (let i = 0; i < list.length; i++) { %>
+        <a href="" target="_blank" id=<%= 'file'+i %> class="list-group-item"><%= list[i] %></a>
       <% } %>
     </ul>
     <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>

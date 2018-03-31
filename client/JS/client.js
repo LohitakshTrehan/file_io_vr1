@@ -4,8 +4,17 @@ window.onload = function() {
     $('.progress-bar').text('0%');
     $('.progress-bar').width('0%');
   });
+  var lis = document.getElementById("listgp").getElementsByTagName('a');
+  for (var i=0; i<lis.length; i++) {
+    lis[i].setAttribute('href',window.location.href+'d/'+lis[i].innerHTML)
+    // lis[i].addEventListener('click', doStuff, false);
+  }
+  // function doStuff() {
+  //   $.get('/d',{nam:this.innerHTML})
+  // }
   $('#upload-input').on('change', function(){
     var files = $(this).get(0).files;
+    //write code here so no duplicate file is uploaded.
     if (files.length > 0){
       // One or more files selected, process the file upload
       // create a FormData object which will be sent as the data payload in the
