@@ -20,10 +20,13 @@ app.get('/',function(req,res) {
   var arr = []
   var i =0
   fs.readdir(upDIR, (err, files) => {
-    files.forEach(file => {
-    //  console.log(file);
-      arr[i++] = file;
-    });
+    // files.forEach(file => {
+    // //  console.log(file);
+    //   arr[i++] = file;
+    // });
+    for(var file in files){
+      arr[i++] = files[file]
+    }
     list = arr
     console.log(arr);
     res.render('index',{list:list});
